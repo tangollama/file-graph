@@ -26,11 +26,13 @@
     "apollo-server": "^3.11.1",
     "apollo-server-express": "^3.11.1",
     "cors": "^2.8.5",
+    "date-and-time": "^2.4.1",
     "graphql": "^16.6.0",
     "gray-matter": "^4.0.3",
     "lodash.kebabcase": "^4.1.1",
     "lodash.merge": "^4.6.2",
-    "polka": "^0.5.2"
+    "polka": "^0.5.2",
+    "simple-git": "^3.15.1"
   },
   "prettier": "@dmsi/prettier-config"
 }

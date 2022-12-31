@@ -6,6 +6,7 @@ const Query = gql`
     course(id: String!): Course
     listCourses: [String]
     listUnits(courseId: String!): [String]
+    gitStatus: GitStatusSummary
   }
 
   type Mutation {
@@ -14,6 +15,10 @@ const Query = gql`
     saveUnit(input: UnitInput!): Unit!
     deleteUnit(unitId: String!, courseId: String!): Boolean!
     saveCourse(input: CourseInput!): Course!
+
+    gitAdd(files: [String]!): Boolean!
+    gitCommit(files: [String], all: Boolean, message: String): Boolean!
+    gitPush: Boolean!
   }
 
   input PageInput {
@@ -58,6 +63,23 @@ const Query = gql`
     id: String!
     title: String
     units: [Unit]
+  }
+
+  type GitStatusSummary {
+    not_added: [String]
+    conflicted: [String]
+    created: [String]
+    deleted: [String]
+    ignored: String
+    modified: [String]
+    renamed: [String]
+    files: [FileStatusSummary]
+    staged: [String]
+  }
+  type FileStatusSummary {
+    path: String
+    index: String
+    working_dir: String
   }
 `;
 

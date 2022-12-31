@@ -9,12 +9,13 @@ import getSchema from './getSchema';
 import { resolvers as CourseResolvers } from './resolvers/course';
 import { resolvers as UnitResolvers } from './resolvers/unit';
 import { resolvers as PageResolvers } from './resolvers/page';
+import { resolvers as GitResolvers } from './resolvers/git';
 
 const PORT = process.env.PORT || 3000;
 
 let schema = makeExecutableSchema({
   typeDefs,
-  resolvers: merge(CourseResolvers, UnitResolvers, PageResolvers),
+  resolvers: merge(CourseResolvers, UnitResolvers, PageResolvers, GitResolvers),
 });
 
 const fileMap = getSchema();
